@@ -39,14 +39,14 @@ class RandomWordsState extends State<RandomWords> {
           if (index >= _suggestions.length) {
             _suggestions.addAll(generateWordPairs().take(10)); /*4*/
           }
-          return _buildRow(_suggestions[index]);
+          return _buildRow(_suggestions[index], index);
         });
   }
 
-  Widget _buildRow(WordPair pair) {
+  Widget _buildRow(WordPair pair, int index) {
     return ListTile(
         title: Text(
-          pair.asPascalCase,
+          index.toString() + pair.asPascalCase,
           style: _biggerFont,
         ),
     );
